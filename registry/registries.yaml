@@ -1,0 +1,4 @@
+mirrors:
+  "registry.jameselgar.com":
+    endpoint:
+      - "http://registry.jameselgar.com"
