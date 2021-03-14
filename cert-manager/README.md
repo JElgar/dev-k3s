@@ -1,3 +1,8 @@
+# Arkade install
+
+`arkade install cert-manager`
+
+# Manual install
 
 ## Install cert-manager
 
@@ -8,3 +13,8 @@
 
 `kubectl apply -f test-nginx`
 
+# ClusterIssuer
+
+Once installed apply the clusterissuuer with:
+
+`kubectl apply -f letsencrypt.yml`

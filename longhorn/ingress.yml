@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: longhorn-ingress
+  namespace: longhorn-system
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/auth-type: basic
+    ingress.kubernetes.io/ssl-redirect: "true"
+    ingress.kubernetes.io/auth-secret: basic-auth
+spec:
+  tls:
+    - secretName: ingress-longhorn-tls
+      hosts:
+        - longhorn.jameselgar.com
+  rules:
+  - host: longhorn.jameselgar.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: longhorn-frontend
+          servicePort: 80
